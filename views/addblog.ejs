@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+</head>
+
+<body>
+    <%- include layout %>
+        <div class="container">
+            <h2 align="center" class="my-3">Add Blog</h2>
+            <% if(locals.errors) { %>
+            <ul class="alert alert-danger">
+                <% Object.values(errors).forEach(function (error){ %>
+                    <li><%= error.msg %> </li>
+                <% }) %>
+            </ul>
+            <% } %>
+            <form class="" action="/blog/add" method="post">
+                <div class="form-group mb-3">
+                    <label for="">Title Blog</label>
+                    <input type="text" name="name" value="" class="form-control">
+                </div>
+                <!-- <div class="form-group mb-3">
+                    <label for="">Detail</label>
+                    <textarea name="detail" rows="8" cols="80" class="form-control"></textarea>
+                </div> -->
+                <div class="form-group mb-3">
+                    <label for="">Description</label>
+                    <textarea name="description" rows="8" cols="80" class="form-control"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Author</label>
+                    <input type="text" name="author" value="" class="form-control">
+                </div>
+                <input type="submit" name="" value="save" class="btn btn-dark mb-3">
+            </form>
+            <a href="/blog">Back</a>
+        </div>
+        <script>
+            CKEDITOR.replace('description');
+        </script>
+</body>
+
+</html>
