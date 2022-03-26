@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const product = require("../controllers/product");
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.render('product');
-});
+router.get('/', product.findAll);
 
 router.get('/add', function (req, res, next) {
     res.send('Add Product');
